@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .main {
+      height: 380px;
+      width: 250px;
+      border: 1px solid black;
+      border-radius: 7px;
+      margin: 30px auto;
+      background-image: url(https://img.freepik.com/free-photo/close-up-oily-bubbles-droplets-colourful-watery-backdrop_23-2148290061.jpg?ga=GA1.1.1483435555.1718290681&semt=ais_hybrid);
+    }
+    .in1 {
+      margin: 10px auto;
+      margin-left: 7px;
+
+      height: 30px;
+      border-radius: 10px;
+      text-align: center;
+      width: 230px;
+    }
+    .btn {
+      height: 40px;
+      width: 100px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      margin-top: 40px;
+      background-color: #99ccff;
+      padding: 0.6em 2em;
+      border: none;
+      outline: none;
+      color: rgb(255, 255, 255);
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    .btn::before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: btn 20s linear infinite;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    @keyframes btn {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 400% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+
+    .btn:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #222;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    .in2 {
+      margin: 10px auto;
+      margin-left: 10px;
+      height: 30px;
+      border-radius: 10px;
+      width: 230px;
+      text-align: center;
+    }
+
+    .cam {
+      height: 40px;
+      margin-left: 95px;
+      cursor: pointer;
+    }
+    .allimg {
+      height: 50px;
+      margin: 4px;
+      margin-top: 70px;
+      cursor: pointer;
+    }
+    .one {
+      background-color: #ff80bf;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <img
+        src="./img/camera-removebg-preview.png"
+        alt=""
+        autoplay
+        class="cam"
+        id="openCamera"
+     
+      />
+
+      <input
+        type="text"
+        id="inp1"
+        placeholder="Enter the name"
+        class="in1"
+      /><br />
+      <input type="text" id="inp2" class="in2" placeholder="your phone No is" />
+
+      <button type="button" class="btn" onclick="search()">Search</button>
+
+      <button type="button" class="btn one" onclick="clearall()">Clear</button
+      ><br />
+      <a href="tel:1-555-555-5555"
+        ><img src="./img/phone.png" alt="" class="allimg"
+      /></a>
+      <img src="./img/message.png" alt="" class="allimg" />
+      <a href="https://web.whatsapp.com/"
+        ><img src="./img/whatsupp.png" alt="" class="allimg"
+      /></a>
+      <a href="https://www.instagram.com/accounts/login/"
+        ><img src="./img/instagram.png" alt="" class="allimg"
+      /></a>
+    </div>
+    <video id="video" class="new" autoplay></video>
+
+    <script>
+      const phoneNo = {
+        kiran: "87374373",
+        kishor: "848498389",
+        yash: "438947374",
+        prathamesh: "87374373",
+        Abhi: "848498389",
+        mohit: "438947374",
+        pranali: "87374373",
+        kajal: "848498389",
+        sanket: "438947374",
+      };
+
+      function search() {
+        let in1 = document.getElementById('inp1').value;
+        let phone = phoneNo[in1];
+        let output= document.getElementById('inp2');
+        if(phone){
+          output.value = `the phone no of ${in1} is ${phone}`
+        }
+        else{
+          output.value = `the phone is not found in phone list`
+        }
+      }
+
+      function clearall() {
+        document.getElementById("inp1").value = "";
+        document.getElementById("inp2").value = "";
+      }
+
+      
+    </script>
+  </body>
+</html>
